@@ -1,0 +1,20 @@
+
+# =========== Spending Authentication ==============
+
+# api call for user authentication
+###
+POST http://127.0.0.1:8000/v1/spending/register/
+Content-Type: application/json
+
+{
+    "username":"python",
+    "email":"python@gmail.com",
+    "password":"python123"
+}
+
+# api call for listing user
+###
+GET http://127.0.0.1:8000/v1/spending/me/
+Accept: application/json
+Authorization: Basic react:react123
+
