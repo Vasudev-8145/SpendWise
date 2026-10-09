@@ -1,5 +1,5 @@
 
-# =========== Spending Authentication ==============
+# =========== Authentication Endpoints ==============
 
 # api call for user authentication
 ###
@@ -18,3 +18,55 @@ GET http://127.0.0.1:8000/v1/spending/me/
 Accept: application/json
 Authorization: Basic react:react123
 
+
+# =========== ExpenseV1 ListCreate Endpoints ==============
+
+# api call for listing expense details
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/
+Accept: application/json
+Authorization: Basic django:django123
+
+# api call for creating expense details
+###
+POST http://127.0.0.1:8000/v1/spending/expenses/
+Content-Type: application/json
+Authorization: Basic react:react123
+
+{
+    "title":"mobile recharge",
+    "amount":290,
+    "category":"BILLS",
+    "priority":"need",
+    "payment_method":"upi"
+}
+
+# api call for listing one expense details
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/1/
+Accept: application/json
+Authorization: Basic django:django123
+
+# api call for updating one expense detail
+###
+PUT http://127.0.0.1:8000/v1/spending/expenses/1/
+Content-Type: application/json
+Authorization: Basic django:django123
+
+{
+    "id": 1,
+    "owner": "django",
+    "title": "petrol",
+    "amount": "1000.00",
+    "category": "BILLS",
+    "priority": "need",
+    "payment_method": "cash",
+    "created_at": "2026-10-09T06:01:11.177455Z",
+    "updated_at": "2026-10-09T06:01:11.177455Z"
+}
+
+# api call for deleting one expense detail
+###
+DELETE http://127.0.0.1:8000/v1/spending/expenses/4/
+Accept: application/json
+Authorization: Basic django:django123
