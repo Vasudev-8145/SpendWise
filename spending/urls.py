@@ -1,6 +1,7 @@
 
 from django.urls import path
 from spending.views import SignUpView,GetMeView,ExpenseListCreateView,ExpenseRetrieveUpdateDeleteView
+from rest_framework.authtoken.views import ObtainAuthToken
 
 urlpatterns = [
 
@@ -15,4 +16,7 @@ urlpatterns = [
 
     # expense retrive,update,delete route
     path("expenses/<int:pk>/",ExpenseRetrieveUpdateDeleteView.as_view()),
+
+    # token creation route
+    path("token/",ObtainAuthToken.as_view()),
 ]
