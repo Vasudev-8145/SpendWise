@@ -1,6 +1,6 @@
 
 from django.urls import path
-from spending.views import SignUpView,GetMeView,ExpenseListCreateView,ExpenseRetrieveUpdateDeleteView
+from spending.views import SignUpView,GetMeView,ExpenseListCreateView,ExpenseRetrieveUpdateDeleteView,ExpenseSummaryView
 from rest_framework.authtoken.views import ObtainAuthToken
 
 urlpatterns = [
@@ -19,4 +19,7 @@ urlpatterns = [
 
     # token creation route
     path("token/",ObtainAuthToken.as_view()),
+
+    # expense summary route
+    path("expenses/summary/",ExpenseSummaryView.as_view()),
 ]

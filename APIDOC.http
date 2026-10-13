@@ -46,10 +46,10 @@ Content-Type: application/json
 Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
 
 {
-    "title":"turf split",
-    "amount":100,
-    "category":"BILLS",
-    "priority":"want",
+    "title":"meals",
+    "amount":70,
+    "category":"FOOD",
+    "priority":"need",
     "payment_method":"upi"
 }
 
@@ -84,4 +84,10 @@ Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
 DELETE http://127.0.0.1:8000/v1/spending/expenses/4/
 Accept: application/json
 # Authorization: Basic django:django123
+Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
+
+# api call for summary
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/summary/
+Accept: application/json
 Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
