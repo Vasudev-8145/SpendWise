@@ -12,6 +12,7 @@ from datetime import datetime
 from spending.serializers import UserSerializer,ExpenseSerializer
 from spending.models import Expense
 from spending.permissions import IsOwner
+from spending.ai_service import get_budget_plan
 
 class SignUpView(APIView):
 
@@ -169,6 +170,32 @@ class ExpenseSummaryView(APIView):
 
             response_data["monthly_total"] = month_exp
             response_data["monthly_category_total"] = month_cat_summ
+
+        return Response(data=response_data)
+
+class BudgetPlanView(APIView):
+
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self,request):
+
+        response_data = {"monthly_total":0}
+
+        cur_month = datetime.now().month
+        cur_year = datetime.now().year
+
+        monthly_exp = Expense.objects.filter(owner=request.user,created_at__month=cur_month,created_at__year=cur_year)
+
+        if monthly_exp:
+
+            monthly_total = monthly_exp.values("amount").aggregate(total=Sum("amount")).get("total")
+            monthly_cat_total = monthly_exp.values("category").annotate(total=Sum("amount"))
+
+            response_data["monthly_total"] = monthly_total
+            response_data["category_summary"] = monthly_cat_total
+
+            get_budget_plan(response_data)
 
         return Response(data=response_data)
 
