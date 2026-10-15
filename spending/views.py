@@ -195,7 +195,8 @@ class BudgetPlanView(APIView):
             response_data["monthly_total"] = monthly_total
             response_data["category_summary"] = monthly_cat_total
 
-            get_budget_plan(response_data)
+            budget_plan = get_budget_plan(response_data)
+            response_data["plan"] = budget_plan
 
         return Response(data=response_data)
 

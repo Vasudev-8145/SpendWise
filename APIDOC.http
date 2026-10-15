@@ -35,14 +35,12 @@ Authorization: Basic react:react123
 ###
 GET http://127.0.0.1:8000/v1/spending/expenses/
 Accept: application/json
-# Authorization: Basic django:django123
 Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
 
 # api call for creating expense details
 ###
 POST http://127.0.0.1:8000/v1/spending/expenses/
 Content-Type: application/json
-# Authorization: Basic react:react123
 Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
 
 {
@@ -57,14 +55,12 @@ Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
 ###
 GET http://127.0.0.1:8000/v1/spending/expenses/1/
 Accept: application/json
-# Authorization: Basic react:react123
 Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
 
 # api call for updating one expense detail
 ###
 PUT http://127.0.0.1:8000/v1/spending/expenses/1/
 Content-Type: application/json
-# Authorization: Basic django:django123
 Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
 
 {
@@ -83,7 +79,6 @@ Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
 ###
 DELETE http://127.0.0.1:8000/v1/spending/expenses/4/
 Accept: application/json
-# Authorization: Basic django:django123
 Authorization: Token d04371062133e8cad3ffb9f2f361f0d3bf8f9e7a
 
 # api call for summary
